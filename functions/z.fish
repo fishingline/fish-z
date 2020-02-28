@@ -1,8 +1,8 @@
 function z -d "jump around"
-    set -lx z_script_path (dirname (status -f))/z/z.sh
+    set -lx z_script_dir (dirname (status -f))/z
+    set -lx z_script_path $z_script_dir/z.sh
     if not test -f $z_script_path
-        echo "z not found" >&2
-        return 1
+        git clone https://github.com/rupa/z.git $z_script_dir
     end
 
     # Start a Bash process, source z, run the _z function, and capture the working directory and exit status.
