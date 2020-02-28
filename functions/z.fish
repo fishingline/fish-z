@@ -7,7 +7,7 @@ function z -d "jump around"
 
     # Start a Bash process, source z, run the _z function, and capture the working directory and exit status.
     bash -c '
-        source $z_script_path
+        source "$z_script_path"
         _z "$@" 2>&1
         z_status=$?
         echo "$PWD|$z_status" >&2
